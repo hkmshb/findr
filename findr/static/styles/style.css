@@ -1,0 +1,75 @@
+* { box-sizing: border-box; }
+html, body {
+    margin: 10px; padding: 0px; 
+    font: 11pt/12pt Roboto; color: #444; 
+}
+
+form, .container, .panel { width: 100%; margin: 0 auto; }
+a, button { border:none; background:none; }
+
+/* GRID */
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8 { 
+    float: left; position: relative; width: 100%;
+    padding-left: 5px; padding-right: 5px; 
+}
+@media (min-width: 550px) {
+    .col-1 { width:12.5%; }
+    .col-2 { width:25%; }
+    .col-3 { width:37.5%; }
+    .col-4 { width:50%; }
+    .col-5 { width:62.5%;}
+    .col-6 { width:75%; }
+    .col-7 { width:87.5%; }
+    .col-8 { width:100%; }
+}
+
+/* ### GENERAL SEARCH-PANE LOOK ### */
+.form-control { padding: 5px; font-size: 18px; border: none; text-align: center; }
+.form-control:focus { outline: none; }
+
+/* INPUT GROUP */
+.input-group { border-bottom: solid 2px #ddd; width: 100%; }
+.input-group .input-wrap { margin-right: 26px; }
+.input-group button, .input-group a { float: right; padding: 3px 2px 0 2px; }
+.input-group input { width: 100%; }
+.input-group img { width:17px; height:22px; }
+
+/* LABEL GROUP */
+.label-group { line-height: 8pt; margin-bottom: 10px; }
+.label-group label { display: block; margin: 0; padding: 2px 5px; color: #666; }
+.label-group .title { text-transform: uppercase; font-size:8pt; font-weight: bold; color: #bbb; }
+.label-group .value { padding-bottom: 4px; border-bottom: solid 2px #ccc;  }
+
+.search-pane { margin-bottom: 10px; overflow: auto; }
+.search-pane .logo { float: left; width: 100px; height: 74px; }
+.search-pane .search-box { margin-left: 120px; width: auto; padding-top: 10px; }
+
+/* ### FRONT ### */
+.front { padding-top: 30px; }
+.front .logo { float: none; display: block; width: 250px; height: 184px; margin: 0 auto; }
+.front .search-box { display: block; width: 250px; margin: 0 auto; }
+.front .form-control { font-size: 22px; }
+.front .input-group img { width: 20px; height: 27px; }
+
+@media (min-width: 650px) {
+    .front { padding-top: 100px; width: 610px; }
+    .front .logo { float: left; width: 270px; height: 200px; }
+    .front .search-box { float: right; width: 320px; padding-top: 70px; }
+}
+
+/* ### RESULT ### */
+.result .content {
+    padding: 10px 5px; overflow: auto;
+    border-radius: 5px; background: #fafafa;
+}
+.result .search-box { width: 200px; }
+@media (min-width: 768px) {
+    .result.container { width: 768px; margin-top: 50px; }
+    .result .search-pane { width: 150px; float: left; overflow: visible; }
+    .result .search-pane .logo { width: 150px; height: 110px; }
+    .result .search-box { margin-left: 0; width: 150px; }
+    .result .form-control { font-size: 14px; }
+
+    .result .content-pane { margin-left: 160px; border-left: solid 1px #f1f1f1; }
+    .result .content { margin-left: 10px; }
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="7.3819113mm"
+   width="5.4244413mm"
+   viewBox="0 0 5.4244413 7.3819113"
+   version="1.1"
+   id="svg4207"
+   inkscape:version="0.92.0 unknown"
+   sodipodi:docname="magnifr.svg">
+  <defs
+     id="defs4211" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="719"
+     id="namedview4209"
+     showgrid="false"
+     inkscape:zoom="5.1846239"
+     inkscape:cx="41.668509"
+     inkscape:cy="17.199525"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4207" />
+  <metadata
+     id="metadata4205">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="g4285"
+     transform="translate(-49.202403,-67.559455)">
+    <rect
+       style="display:inline;opacity:1;fill:#ffffff;stroke:#263b94;stroke-width:0.52916849;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3693"
+       width="1.2805771"
+       height="3.8521562"
+       x="13.806911"
+       y="87.293777"
+       rx="1.6358696"
+       ry="1.6358696"
+       transform="matrix(0.88966292,-0.45661789,0.45328132,0.89136751,0,0)" />
+    <ellipse
+       style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#263b94;stroke-width:0.52916664;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3687"
+       cx="51.83535"
+       cy="70.207733"
+       rx="2.3683634"
+       ry="2.3836951" />
+  </g>
+</svg>

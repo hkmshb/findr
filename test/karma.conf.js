@@ -19,6 +19,7 @@ module.exports = function(config) {
       'findr/static/scripts/libs/jquery.min.js',
       'findr/static/scripts/libs/angular.min.js',
       'findr/static/scripts/libs/angular-route.min.js',
+      'findr/static/scripts/libs/angular-resource.min.js',
       'findr/static/scripts/libs/angular-mocks.js',
       'findr/static/scripts/*.js',
       'test/spec/**/*.js'

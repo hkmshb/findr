@@ -21,10 +21,11 @@ module.exports = function(grunt) {
         copy: {
             dist: {
                 files: [{
+                    expand: true, cwd: '<%= p.bowr %>/jquery/dist/', src: 'jquery.min.js', dest: '<%= p.js %>/libs/'}, {
                     expand: true, cwd: '<%= p.bowr %>/angular/', src: 'angular.js', dest: '<%= p.js %>/libs/'}, {
                     expand: true, cwd: '<%= p.bowr %>/angular-route/', src: 'angular-route.min.js', dest: '<%= p.js %>/libs/'}, {
                     expand: true, cwd: '<%= p.bowr %>/angular-mocks/', src: 'angular-mocks.js', dest: '<%= p.js %>/libs/'}, {
-                    expand: true, cwd: '<%= p.bowr %>/jquery/dist/', src: 'jquery.min.js', dest: '<%= p.js %>/libs/'}
+                    expand: true, cwd: '<%= p.bowr %>/angular-resource/', src: 'angular-resource.min.js', dest: '<%= p.js %>/libs/'}
                 ]
             }
         }

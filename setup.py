@@ -16,6 +16,13 @@ requires = [
     'pyramid_jinja2'
 ]
 
+tests_require = [
+    'WebTest >= 1.3.1',
+    'pytest',
+    'pytest-cov',
+]
+
+
 setup(
     name='findr',
     version='0.0',
@@ -27,16 +34,17 @@ setup(
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
     ],
-    author='',
-    author_email='',
+    author='Abdul-Hakeem Shaibu',
+    author_email='hkmshb@gmail.com',
     url='',
     keywords='web pyramid pylons',
     packages=find_packages(),
     include_package_data=True,
     zip_safe=False,
     install_requires=requires,
-    tests_require=requires,
-    test_suite="findr",
+    extras_require={
+        'testing': tests_require
+    },
     entry_points="""\
     [paste.app_factory]
     main = findr:main

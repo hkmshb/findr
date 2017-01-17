@@ -8,7 +8,7 @@
     <meta name="author" content="Abdul-Hakeem Shaibu">
     <title>Findr</title>
     <link rel="shortcut icon" href="" />
-    <link rel="stylesheet" href="{{ request.static_url('findr:static/styles/style.css') }}" />
+    <link rel="stylesheet" href="{{ request.static_url('findr:static/styles/style.css') }}?v03" />
 </head>
 <body>
     <div ng-view></div>
@@ -35,15 +35,16 @@
     <script type="text/ng-template" id="_result.html">
     <div class="container result">
         <div class="search-pane">
-            <a href="/"><img class="logo" src="static/img/findr-logo.svg" /></a>
-            <form class="search-box">
+            <a href="/"><img class="logo" src="{{ request.static_url('findr:static/img/findr-logo.svg') }}" /></a>
+            <form class="search-box" ng-submit="handleSubmit()">
                 <div class="input-group">
-                    <a href="index.html"><img src="static/img/magnifr.svg" /></a>
+                    <button><img src="{{ request.static_url('findr:static/img/magnifr.svg') }}" /></button>
                     <div class="input-wrap">
                         <input type="text" ng-model="findr.entry" class="form-control" 
                                placeholder="account or meter no." />
                     </div>
                 </div>
+                <div ng-bind="findr.error" style="color:red; text-align:center;" />
             </form>
         </div>
 
@@ -51,39 +52,39 @@
             <div class="content">
                 <div class="label-group col-5">
                     <label class="title">Name</label>
-                    <label class="value">-</label>
+                    <label class="value" ng-bind="account.customerName">-</label>
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Tariff</label>
-                    <label class="value">-</label>
+                    <label class="value" ng-bind="account.tariffCode">-</label>
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Account Number</label>
-                    <label class="value">-</label>
+                    <label class="value" ng-bind="(account.accountNumber || '-')">-</label>
                 </div>
                 <div class="label-group col-5">
                     <label class="title">Region</label>
-                    <label class="value">-</label>
+                    <label class="value" ng-bind="(account.businessUnit || '-')">-</label>
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Meter Number</label>
-                    <label class="value">-</label>
+                    <label class="value" ng-bind="(account.meterNumber || '-')">-</label>
                 </div>                    
                 <div class="label-group col-5">
                     <label class="title">Customer Service Point</label>
-                    <label class="value">-</label>
+                    <label class="value" ng-bind="(account.undertaking || '-')">-</label>
                 </div>
                 <div class="label-group col-2">
-                    <label class="title">Last Purchase</label>
-                    <label class="value">0.0</label>
+                    <label class="title">Last Transaction</label>
+                    <label class="value" ng-bind="(account.lastTransactionDate || '?') | limitTo:10">-</label>
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Minimum Purchase</label>
-                    <label class="value">0.0</label>
+                    <label class="value" ng-bind="(account.minimumPurchase || '0.0')">0.0</label>
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Customer Arreas</label>
-                    <label class="value">0.0</label>
+                    <label class="value" ng-bind="(account.cutomerArrears || '0.0')">0.0</label>
                 </div>
             </div>
         </div>
@@ -95,6 +96,6 @@
     <script src="{{ request.static_url('findr:static/scripts/libs/angular.js') }}"></script>
     <script src="{{ request.static_url('findr:static/scripts/libs/angular-route.min.js') }}"></script>
     <script src="{{ request.static_url('findr:static/scripts/libs/angular-resource.min.js') }}"></script>
-    <script src="{{ request.static_url('findr:static/scripts/app.js') }}?v03"></script>
+    <script src="{{ request.static_url('findr:static/scripts/app.js') }}?v04"></script>
 </body>
 </html>

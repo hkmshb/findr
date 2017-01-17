@@ -1,3 +1,5 @@
+import os
+from configparser import ConfigParser
 from pyramid.config import Configurator
 from sqlalchemy import engine_from_config
 from sqlalchemy.orm import sessionmaker
@@ -44,10 +46,19 @@ def config_db(config, settings):
 
 def config_routes(config):
     config.add_route('home', '/')
+    config.add_route('account_lookup', '/lookup/{key}')
     config.scan()
 
-    
+
+def config_custom_sections(global_config, settings):
+    parser = ConfigParser()
+    parser.read(os.path.join(global_config['here'], 'api.conf.ini'))
+    for key, value in parser.items('api:kedco'):
+        settings['api.kedco.%s' % key] = value
+
+
 def main(global_config, **settings):
+    config_custom_sections(global_config, settings)
     config = Configurator(settings=settings)
     config_static(config)
     config_jinja2(config)

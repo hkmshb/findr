@@ -9,18 +9,13 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
 }]);
 
 app.factory('Account', ['$resource', function($resource){
-    var urlRoot = 'http://10.30.3.2:8080/KEDCOWebServices/webresources/Identification/'
-                + '105/:code/xyz;referencetype=:ref?postpaid=:flag'
-    return $resource(urlRoot, {code: '@code', ref: '@ref', flag: '@flag'}, {
-        get: {method: 'XML', params:{callback: 'JSON_CALLBACK'}}
-    });
+    return $resource('/lookup/:key', {key: '@key'});
 }]);
 
 app.factory('AccountLoader', ['Account', '$q', function(Account, $q) {
-    return function() {
-        var delay = $q.defer()
-          , code = '04040404040';
-        Account.get({code:code, ref:'meter', flag:false}, function(acct) {
+    return function(key) {
+        var delay = $q.defer();
+        Account.get({key: key}, function(acct) {
             delay.resolve(acct);
         }, function() {
             delay.reject('Unable to fetch account: ' + code);
@@ -87,20 +82,30 @@ function($scope, $location, findrService) {
     }
 }]);
 
-app.controller('ResultCtrl', ['$scope', '$location', 'findrService',
-function($scope, $location, findrService) {
+app.controller('ResultCtrl', ['$scope', '$location', 'findrService', 'AccountLoader',
+function($scope, $location, findrService, AccountLoader) {
     $scope.findr = findrService.getCache();
     $scope.displayAccount = function() {
         var entry = $scope.findr.entry;
         if (findrService.isValidEntry(entry)) {
-            var acct = (findrService.isAccountNumber(entry)
-                     ? findrService.getAccountByNumber(entry)
-                     : findrService.getAccountByMeter(entry));
-            $scope.account = acct;
+            var plain = entry.replace(/\//g, '');
+            AccountLoader(plain).then(function(account){
+                $scope.account = account;
+            });
         }
     }
-    $scope.findAccount = function() { 
-
+    $scope.handleSubmit = function() { 
+        var entry = $scope.findr.entry;
+        $scope.findr.error = '';
+        if (!findrService.isNullOrEmptyStr(entry)) {
+            if (!findrService.isValidEntry(entry)) {
+                $scope.findr.error = 'Invalid account or meter number provided.';
+                $scope.account = {};
+            } else {
+                findrService.setCache($scope.findr);
+                $scope.displayAccount()
+            }
+        }
     }
     $scope.displayAccount();
 }]);

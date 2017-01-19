@@ -8,7 +8,7 @@
     <meta name="author" content="Abdul-Hakeem Shaibu">
     <title>Findr</title>
     <link rel="shortcut icon" href="" />
-    <link rel="stylesheet" href="{{ request.static_url('findr:static/styles/style.css') }}?v03" />
+    <link rel="stylesheet" href="{{ request.static_url('findr:static/styles/style.css') }}?v2f" />
 </head>
 <body>
     <div ng-view></div>
@@ -17,7 +17,10 @@
     <script type="text/ng-template" id="_home.html">
         <div class="container front">
             <div class="search-pane">
-                <img class="logo" src="{{ request.static_url('findr:static/img/findr-logo.svg') }}" />
+                <div class="logos">
+                    <img class="org-logo" src="{{ request.static_url('findr:static/img/kedco-logo.png') }}" />
+                    <img class="logo" src="{{ request.static_url('findr:static/img/findr-logo.svg') }}" />
+                </div>
                 <form class="search-box" ng-submit="handleSubmit()">
                     <div class="input-group">
                         <button><img src="{{ request.static_url('findr:static/img/magnifr.svg') }}" /></button>
@@ -35,7 +38,10 @@
     <script type="text/ng-template" id="_result.html">
     <div class="container result">
         <div class="search-pane">
-            <a href="/"><img class="logo" src="{{ request.static_url('findr:static/img/findr-logo.svg') }}" /></a>
+            <div class="logos">
+                <img class="org-logo" src="{{ request.static_url('findr:static/img/kedco-logo.png') }}" />
+                <a href="/"><img class="logo" src="{{ request.static_url('findr:static/img/findr-logo.svg') }}" /></a>
+            </div>
             <form class="search-box" ng-submit="handleSubmit()">
                 <div class="input-group">
                     <button><img src="{{ request.static_url('findr:static/img/magnifr.svg') }}" /></button>
@@ -44,7 +50,7 @@
                                placeholder="account or meter no." />
                     </div>
                 </div>
-                <div ng-bind="findr.error" style="color:red; text-align:center;" />
+                <div ng-bind="(findr.error || account.error)" style="color:red; text-align:center;" />
             </form>
         </div>
 
@@ -84,7 +90,7 @@
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Customer Arreas</label>
-                    <label class="value" ng-bind="(account.cutomerArrears || '0.0')">0.0</label>
+                    <label class="value" ng-bind="(account.customerArrears || '0.0')">0.0</label>
                 </div>
             </div>
         </div>
@@ -96,6 +102,6 @@
     <script src="{{ request.static_url('findr:static/scripts/libs/angular.js') }}"></script>
     <script src="{{ request.static_url('findr:static/scripts/libs/angular-route.min.js') }}"></script>
     <script src="{{ request.static_url('findr:static/scripts/libs/angular-resource.min.js') }}"></script>
-    <script src="{{ request.static_url('findr:static/scripts/app.js') }}?v04"></script>
+    <script src="{{ request.static_url('findr:static/scripts/app.js') }}?v0c"></script>
 </body>
 </html>

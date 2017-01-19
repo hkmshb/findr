@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto-Regular.ttf') format('truetype');
+};
+
 * { box-sizing: border-box; }
 html, body {
     margin: 10px; padding: 0px; 
@@ -11,6 +16,7 @@ a, button { border:none; background:none; }
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8 { 
     float: left; position: relative; width: 100%;
     padding-left: 5px; padding-right: 5px; 
+    box-sizing: border-box;
 }
 @media (min-width: 550px) {
     .col-1 { width:12.5%; }
@@ -41,20 +47,27 @@ a, button { border:none; background:none; }
 .label-group .value { padding-bottom: 4px; border-bottom: solid 2px #ccc;  }
 
 .search-pane { margin-bottom: 10px; overflow: auto; }
-.search-pane .logo { float: left; width: 100px; height: 74px; }
-.search-pane .search-box { margin-left: 120px; width: auto; padding-top: 10px; }
+.search-pane .logos { float: left; width: 140px; }
+.search-pane .org-logo { margin-bottom: 15px; width:50px; height:54px; }
+.search-pane .logo { width: 100px; height: 74px; }
+.search-pane .search-box { margin-left: 150px; width: auto; padding-top: 10px; }
 
 /* ### FRONT ### */
 .front { padding-top: 30px; }
-.front .logo { float: none; display: block; width: 250px; height: 184px; margin: 0 auto; }
-.front .search-box { display: block; width: 250px; margin: 0 auto; }
-.front .form-control { font-size: 22px; }
+.front .logos { float: none; display: block; width:255px; height:184px; margin:0 auto; }
+.front .org-logo { width: 70px; height: 75px; position: relative; left: 100px; margin-bottom:-60px; }
+.front .logo { width: 250px; height: 184px; }
+.front .search-box { display: block; width: 250px; margin: 10px auto 0; }
+.front .form-control { font-size: 22px; padding: 5px 0; }
 .front .input-group img { width: 20px; height: 27px; }
 
 @media (min-width: 650px) {
     .front { padding-top: 100px; width: 610px; }
-    .front .logo { float: left; width: 270px; height: 200px; }
+    .front .logos { float: left; width: 270px; height: 200px; }
+    .front .logo { width: 270px; height: 200px; }
+    .front .org-logo { width:70px; height:75px; position: relative; left: 110px; margin-bottom: -60px; }
     .front .search-box { float: right; width: 320px; padding-top: 70px; }
+    .front .search-pane { height: 250px; }
 }
 
 /* ### RESULT ### */
@@ -62,14 +75,22 @@ a, button { border:none; background:none; }
     padding: 10px 5px; overflow: auto;
     border-radius: 5px; background: #fafafa;
 }
+.result .logo { margin-left: -20px; }
+.result .search-pane { height: 84px; }
 .result .search-box { width: 200px; }
 @media (min-width: 768px) {
     .result.container { width: 768px; margin-top: 50px; }
     .result .search-pane { width: 160px; float: left; overflow: visible; }
-    .result .search-pane .logo { width: 160px; height: 117px; }
+    .result .search-pane .logos { width: 160px; }
+    .result .search-pane .logo { margin-left: 0px; width: 160px; height: 117px; }
+    .result .search-pane .org-logo { margin-bottom: -40px; position: relative; left: 60px; }
     .result .search-box { margin-left: 0; width: 160px; }
-    .result .form-control { font-size: 14px; }
+    .result .form-control { font-size: 14px; padding: 5px 0; }
 
     .result .content-pane { margin-left: 170px; border-left: solid 1px #f1f1f1; }
     .result .content { margin-left: 10px; }
+}
+@media (max-width: 360px) {
+    .result .logos { width: 140px; }
+    .result .search-box { width: 155px; }
 }

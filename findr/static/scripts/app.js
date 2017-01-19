@@ -91,6 +91,8 @@ function($scope, $location, findrService, AccountLoader) {
             var plain = entry.replace(/\//g, '');
             AccountLoader(plain).then(function(account){
                 $scope.account = account;
+            }, function(reason) {
+                $scope.findr.error = reason;
             });
         }
     }

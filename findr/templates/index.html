@@ -8,10 +8,15 @@
     <meta name="author" content="Abdul-Hakeem Shaibu">
     <title>Findr</title>
     <link rel="shortcut icon" href="" />
-    <link rel="stylesheet" href="{{ request.static_url('findr:static/styles/style.css') }}?v2f" />
+    <link rel="stylesheet" href="{{ request.static_url('findr:static/styles/style.css') }}?v0s" />
 </head>
 <body>
     <div ng-view></div>
+    <footer>
+        <div class="container">
+            &copy; {{ year }} KEDCO <b><i>Findr</i></b> &nbsp; | &nbsp; Ver: {{ version }}
+        </div>
+    </footer>
 
     <!-- embedded templates -->
     <script type="text/ng-template" id="_home.html">

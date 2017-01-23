@@ -7,6 +7,8 @@ with open(os.path.join(here, 'README.md')) as f:
     README = f.read()
 with open(os.path.join(here, 'CHANGES.md')) as f:
     CHANGES = f.read()
+with open(os.path.join(here, 'VERSION')) as f:
+    VERSION = f.read().strip()
 
 requires = [
     'pyramid',
@@ -26,7 +28,7 @@ tests_require = [
 
 setup(
     name='findr',
-    version='0.0',
+    version=VERSION,
     description='findr',
     long_description=README + '\n\n' + CHANGES,
     classifiers=[

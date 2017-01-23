@@ -2,6 +2,7 @@ import os
 import re
 import json
 import requests
+from datetime import datetime
 from pyramid.view import view_config
 from . import utils
 
@@ -11,7 +12,10 @@ CACHE = {}
 
 @view_config(route_name="home", renderer="index.html")
 def home(request):
-    return {}
+    return {
+        'year': datetime.today().year,
+        'version': request.registry.settings['findr.version']
+    }
     
 
 @view_config(route_name="account_lookup", renderer="json")

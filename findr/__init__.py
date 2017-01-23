@@ -51,10 +51,16 @@ def config_routes(config):
 
 
 def config_custom_sections(global_config, settings):
+    # read configuration for API access
     parser = ConfigParser()
     parser.read(os.path.join(global_config['here'], 'api.conf.ini'))
     for key, value in parser.items('api:kedco'):
         settings['api.kedco.%s' % key] = value
+
+    # read version info 
+    ## could there be a better way rather than here
+    with open(os.path.join(global_config['here'], 'VERSION')) as f:
+        settings['findr.version'] = f.read().strip()
 
 
 def main(global_config, **settings):

@@ -1,6 +1,7 @@
 var app = angular.module('app-findr', ['ngRoute', 'ngResource']);
 
 app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
+    $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     $routeProvider
         .when('/', {controller: 'HomeCtrl', templateUrl: "_home.html"})
         .when('/result', {controller: 'ResultCtrl', templateUrl: "_result.html"})

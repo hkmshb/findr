@@ -5,5 +5,7 @@ __pycache__/
 
 
 .*
+tags
+*.py[co]
 !.gitignore
 *.conf.ini

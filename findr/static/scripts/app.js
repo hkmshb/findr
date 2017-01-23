@@ -1,7 +1,6 @@
 var app = angular.module('app-findr', ['ngRoute', 'ngResource']);
 
 app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
-    $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     $routeProvider
         .when('/', {controller: 'HomeCtrl', templateUrl: "_home.html"})
         .when('/result', {controller: 'ResultCtrl', templateUrl: "_result.html"})
@@ -9,7 +8,7 @@ app.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
 }]);
 
 app.factory('Account', ['$resource', function($resource){
-    return $resource('/lookup/:key', {key: '@key'});
+    return $resource(urlRoot + 'lookup/:key', {key: '@key'});
 }]);
 
 app.factory('AccountLoader', ['Account', '$q', function(Account, $q) {
@@ -23,6 +22,17 @@ app.factory('AccountLoader', ['Account', '$q', function(Account, $q) {
         return delay.promise;
     };
 }]);
+
+app.filter('phoneNumber', function() {
+    return function(value) {
+        if (value !== undefined || value !== null) {
+            if (angular.isString(value) && value !== "NULL") {
+                return value;
+            }
+        }
+        return "-";
+    };
+});
 
 app.service('findrService', ['AccountLoader', function(AccountLoader){
     var cache = {};

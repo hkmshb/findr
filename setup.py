@@ -13,7 +13,8 @@ requires = [
     'waitress',
     'sqlalchemy',
     'alembic',
-    'pyramid_jinja2'
+    'pyramid_jinja2',
+    'requests'
 ]
 
 tests_require = [

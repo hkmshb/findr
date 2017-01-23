@@ -40,7 +40,7 @@
         <div class="search-pane">
             <div class="logos">
                 <img class="org-logo" src="{{ request.static_url('findr:static/img/kedco-logo.png') }}" />
-                <a href="/"><img class="logo" src="{{ request.static_url('findr:static/img/findr-logo.svg') }}" /></a>
+                <a href="{{ request.route_url('home') }}"><img class="logo" src="{{ request.static_url('findr:static/img/findr-logo.svg') }}" /></a>
             </div>
             <form class="search-box" ng-submit="handleSubmit()">
                 <div class="input-group">
@@ -58,11 +58,19 @@
             <div class="content">
                 <div class="label-group col-5">
                     <label class="title">Name</label>
-                    <label class="value" ng-bind="account.customerName">-</label>
+                    <label class="value" ng-bind="(account.customerName || '-')">-</label>
+                </div>
+                <div class="label-group col-3">
+                    <label class="title">Phone Number</label>
+                    <label class="value" ng-bind="(account.phoneNumber || '-') | phoneNumber">-</label>
+                </div>
+                <div class="label-group col-5">
+                    <label class="title">E-mail</label>
+                    <label class="value" ng-bind="(account.email || '-')">-</label>
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Tariff</label>
-                    <label class="value" ng-bind="account.tariffCode">-</label>
+                    <label class="value" ng-bind="(account.tariffCode || '-')">-</label>
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Account Number</label>
@@ -82,7 +90,7 @@
                 </div>
                 <div class="label-group col-2">
                     <label class="title">Last Transaction</label>
-                    <label class="value" ng-bind="(account.lastTransactionDate || '?') | limitTo:10">-</label>
+                    <label class="value" ng-bind="(account.lastTransactionDate || '-') | limitTo:10">-</label>
                 </div>
                 <div class="label-group col-3">
                     <label class="title">Minimum Purchase</label>
@@ -98,10 +106,11 @@
     </script>
 
     <!-- le javascripts -->
+    <script>var urlRoot="{{ request.route_url('home') }}";</script>
     <script src="{{ request.static_url('findr:static/scripts/libs/jquery.min.js') }}"></script>
     <script src="{{ request.static_url('findr:static/scripts/libs/angular.js') }}"></script>
     <script src="{{ request.static_url('findr:static/scripts/libs/angular-route.min.js') }}"></script>
     <script src="{{ request.static_url('findr:static/scripts/libs/angular-resource.min.js') }}"></script>
-    <script src="{{ request.static_url('findr:static/scripts/app.js') }}?v0c"></script>
+    <script src="{{ request.static_url('findr:static/scripts/app.js') }}?v0e"></script>
 </body>
 </html>

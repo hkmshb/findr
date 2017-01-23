@@ -26,7 +26,7 @@ def db(request):
 
         
 def config_static(config):
-    config.add_static_view('static', 'static', cache_max_age=3600)
+    config.add_static_view('_findr_static', 'static', cache_max_age=3600)
 
 
 def config_jinja2(config):
